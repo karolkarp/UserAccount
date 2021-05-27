@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import { setConfiguration } from "react-grid-system";
+import Dashboard from "@Views/Dashboard/Dashboard";
+import Profile from "@Views/Profile/Profile";
+import NavigationBar from "@Components/NavigationBar/NavigationBar";
+import Footer from "@Components/Footer/Footer";
+import { AppWrapper } from "./App.styled";
+
+const DASHBOARD_PATH = "/";
+const ADD_ACCOUNT_PATH = "/add";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	setConfiguration({ maxScreenClass: "xl" });
+
+	return (
+		<AppWrapper>
+			<NavigationBar />
+			<Switch>
+				<Route path={DASHBOARD_PATH}>
+					<Dashboard />
+				</Route>
+				<Route path={ADD_ACCOUNT_PATH}>
+					<Profile />
+				</Route>
+			</Switch>
+			<Footer />
+		</AppWrapper>
+	);
 }
 
 export default App;
