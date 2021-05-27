@@ -7,7 +7,14 @@ declare global {
 		type color = cssTypes.Color;
 
 		namespace theme {
-			type themeColors = "primary" | "background" | "black" | "white";
+			type themeColors =
+				| "primary"
+				| "background"
+				| "black"
+				| "black12"
+				| "black24"
+				| "black36"
+				| "white";
 		}
 
 		interface ITypographyParams extends CSSObject {

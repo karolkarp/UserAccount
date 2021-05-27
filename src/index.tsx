@@ -9,7 +9,7 @@ import App from "./App";
 ReactDOM.render(
 	<React.StrictMode>
 		<ThemeProvider theme={theme}>
-			<BrowserRouter basename="/account">
+			<BrowserRouter basename="/">
 				<GlobalStyles />
 				<App />
 			</BrowserRouter>

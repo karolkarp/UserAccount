@@ -17,7 +17,7 @@ function App() {
 		<AppWrapper>
 			<NavigationBar />
 			<Switch>
-				<Route path={DASHBOARD_PATH}>
+				<Route exact path={DASHBOARD_PATH}>
 					<Dashboard />
 				</Route>
 				<Route path={ADD_ACCOUNT_PATH}>

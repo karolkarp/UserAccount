@@ -19,6 +19,7 @@ module.exports = {
 					"@Views": "./src/views",
 					"@Utils": "./src/utils",
 					"@Components": "./src/components",
+					"@Assets": "./src/assets",
 				},
 			},
 		],
