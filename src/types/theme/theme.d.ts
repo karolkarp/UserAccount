@@ -5,7 +5,6 @@ export {};
 declare global {
 	namespace types {
 		type color = cssTypes.Color;
-
 		namespace theme {
 			type themeColors =
 				| "primary"
@@ -25,8 +24,8 @@ declare global {
 		}
 
 		interface ITypography {
-			titleBold: ITypographyParams;
 			title: ITypographyParams;
+			small: ITypographyParams;
 		}
 
 		interface ITheme {

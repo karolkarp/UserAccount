@@ -12,6 +12,7 @@ const theme = {
 	},
 	typography: {
 		title: normalizeFont("sans-serif", 20, 24),
+		small: normalizeFont("sans-serif", 12, 6),
 	},
 };
 
