@@ -5,7 +5,8 @@
 			"@Views/*": ["./src/views/*"],
 			"@Utils/*": ["./src/utils/*"],
 			"@Components/*": ["./src/components/*"],
-			"@Assets/*": ["./src/assets/*"]
+			"@Assets/*": ["./src/assets/*"],
+			"@Redux/*": ["./src/redux/*"]
 		}
 	}
 }

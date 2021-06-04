@@ -1,4 +1,7 @@
 import React from "react";
+import { Provider } from "react-redux";
+import store, { persistor } from "@Redux/store";
+import { PersistGate } from "redux-persist/integration/react";
 import { Route, Switch } from "react-router-dom";
 import { setConfiguration } from "react-grid-system";
 import Dashboard from "@Views/Dashboard/Dashboard";
@@ -14,18 +17,22 @@ function App() {
 	setConfiguration({ maxScreenClass: "xl" });
 
 	return (
-		<AppWrapper>
-			<NavigationBar />
-			<Switch>
-				<Route exact path={DASHBOARD_PATH}>
-					<Dashboard />
-				</Route>
-				<Route path={ADD_ACCOUNT_PATH}>
-					<Profile />
-				</Route>
-			</Switch>
-			<Footer />
-		</AppWrapper>
+		<Provider store={store}>
+			<PersistGate persistor={persistor}>
+				<AppWrapper>
+					<NavigationBar />
+					<Switch>
+						<Route exact path={DASHBOARD_PATH}>
+							<Dashboard />
+						</Route>
+						<Route path={ADD_ACCOUNT_PATH}>
+							<Profile />
+						</Route>
+					</Switch>
+					<Footer />
+				</AppWrapper>
+			</PersistGate>
+		</Provider>
 	);
 }
 

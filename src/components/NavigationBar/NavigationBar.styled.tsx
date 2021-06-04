@@ -41,7 +41,7 @@ export const LinkItem = styled(Link)`
 	&:hover {
 		${({ theme }) => {
 			return {
-				color: theme.colors.white,
+				color: theme.colors.black12,
 			};
 		}}
 `;

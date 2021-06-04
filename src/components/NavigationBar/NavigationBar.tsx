@@ -38,7 +38,7 @@ const NavigationBar: FunctionComponent = () => {
 
 			window.addEventListener("scroll", handleScrool);
 		}
-	}, [screenClass]);
+	}, [screenClass, isXsSm]);
 
 	const handleOpenMenu = () => {
 		setMenuExpanded((expanded) => !expanded);

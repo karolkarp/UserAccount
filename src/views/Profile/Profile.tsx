@@ -1,10 +1,12 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useState, useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col } from "react-grid-system";
 import {
 	UserInformationContainer,
 	AboutWrapper,
 	AvatarWrapper,
 	AvatarContainer,
+	ButtonsWrapper,
 } from "./Profile.styled";
 import Form, {
 	ErrorMessage,
@@ -21,6 +23,9 @@ import Avatar from "@atlaskit/avatar";
 import TextField from "@atlaskit/textfield";
 import { DatePicker } from "@atlaskit/datetime-picker";
 import LoadingButton from "@atlaskit/button/loading-button";
+import { setForm, resetForm } from "@Redux/modules/form/actions";
+import { useHistory } from "react-router-dom";
+
 interface User {
 	firstName: string;
 	lastName: string;
@@ -37,6 +42,9 @@ const ONLY_LETTERS_REGEX = /^[a-zA-Z]+$/;
 const Profile: FunctionComponent = () => {
 	const [modalOpen, setModalOpen] = useState<boolean>(false);
 	const [avatar, setAvatar] = useState<string>();
+	const dispatch = useDispatch();
+	const history = useHistory();
+	const form = useSelector((state: types.redux.IState) => state.form);
 
 	const handleSubmit = (data: User) => {
 		return createUser(data);
@@ -66,11 +74,11 @@ const Profile: FunctionComponent = () => {
 			(errorKey) => errors[errorKey as keyof typeof errors]
 		);
 
-		console.log("errors", errors, withErrors);
 		if (!!withErrors) {
 			return errors;
 		}
-		console.log(data);
+		dispatch(setForm({ ...data, avatar: avatar || form.avatar }));
+		history.push("/");
 	};
 
 	const handleImage = (dataURI: string) => {
@@ -81,6 +89,25 @@ const Profile: FunctionComponent = () => {
 	const handleModalClose = () => {
 		setModalOpen((isOpen) => !isOpen);
 	};
+
+	const handleClearData = () => {
+		dispatch(resetForm({}));
+		history.push("/");
+	};
+
+	const properAvatar = useMemo(() => {
+		if (avatar || form.avatar) {
+			return (
+				<AvatarWrapper>
+					<Avatar
+						appearance="square"
+						src={avatar || form.avatar}
+						size="xxlarge"
+					/>
+				</AvatarWrapper>
+			);
+		}
+	}, [avatar, form]);
 
 	return (
 		<Container>
@@ -95,7 +122,7 @@ const Profile: FunctionComponent = () => {
 										<Field
 											name="firstName"
 											label="First Name"
-											defaultValue=""
+											defaultValue={form.firstName}
 											isRequired
 										>
 											{({ fieldProps, error }) => (
@@ -114,7 +141,7 @@ const Profile: FunctionComponent = () => {
 										<Field
 											name="lastName"
 											label="Last Name"
-											defaultValue=""
+											defaultValue={form.lastName}
 											isRequired
 										>
 											{({ fieldProps, error }) => (
@@ -133,7 +160,7 @@ const Profile: FunctionComponent = () => {
 										<Field
 											name="email"
 											label="Email"
-											defaultValue=""
+											defaultValue={form.email}
 											isRequired
 										>
 											{({ fieldProps, error }) => (
@@ -143,8 +170,8 @@ const Profile: FunctionComponent = () => {
 													/>
 													{!error && (
 														<HelperMessage>
-															Must contain [@ .]
-															symbols
+															Must contain email
+															format
 														</HelperMessage>
 													)}
 													{error && (
@@ -158,7 +185,7 @@ const Profile: FunctionComponent = () => {
 										<Field
 											name="phone"
 											label="Phone"
-											defaultValue=""
+											defaultValue={form.phone}
 											isRequired
 										>
 											{({ fieldProps, error }) => (
@@ -190,13 +217,17 @@ const Profile: FunctionComponent = () => {
 												<DatePicker
 													defaultValue="2021-05-05"
 													{...fieldProps}
+													value={
+														fieldProps.value ||
+														form.birthday
+													}
 												/>
 											)}
 										</Field>
 										<Field
 											name="about"
 											label="About"
-											defaultValue=""
+											defaultValue={form.about}
 										>
 											{({ fieldProps }) => (
 												<AboutWrapper>
@@ -214,16 +245,7 @@ const Profile: FunctionComponent = () => {
 										<Field name="avatar" label="Avatar">
 											{({ fieldProps }) => (
 												<AvatarContainer>
-													{avatar && (
-														<AvatarWrapper>
-															<Avatar
-																appearance="square"
-																src={avatar}
-																size="xxlarge"
-															/>
-														</AvatarWrapper>
-													)}
-
+													{properAvatar}
 													<ModalTransition>
 														{modalOpen && (
 															<AvatarPickerDialog
@@ -255,13 +277,20 @@ const Profile: FunctionComponent = () => {
 										</LoadingButton>
 									</FormSection>
 									<FormFooter>
-										<LoadingButton
-											appearance="primary"
-											type="submit"
-											isLoading={submitting}
-										>
-											Save profile
-										</LoadingButton>
+										<ButtonsWrapper>
+											<LoadingButton
+												appearance="warning"
+												onClick={handleClearData}
+											>
+												Clear all data
+											</LoadingButton>
+											<LoadingButton
+												appearance="primary"
+												type="submit"
+											>
+												Save profile
+											</LoadingButton>
+										</ButtonsWrapper>
 									</FormFooter>
 								</form>
 							)}
