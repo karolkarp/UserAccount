@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { ReactSVG } from 'react-svg';
+import styled from "styled-components";
+import { ReactSVG } from "react-svg";
 
 interface IIconContainerProps {
 	fill: string;
@@ -8,14 +8,13 @@ interface IIconContainerProps {
 	strokecolor: string;
 }
 
-export const IconContainer = styled(ReactSVG)<IIconContainerProps>`
-	${({ fill, strokecolor, width, height, onClick }) => `
+export const IconContainer = styled(ReactSVG as any)<IIconContainerProps>`
+	${({ fill, strokecolor, width, height }) => `
 	svg {
-		width: ${typeof width === 'string' ? width : `${width}px`};
-		height: ${typeof height === 'string' ? height : `${height}px`};
+		width: ${typeof width === "string" ? width : `${width}px`};
+		height: ${typeof height === "string" ? height : `${height}px`};
 		fill: ${fill};
 		strokeColor: ${strokecolor};
-		cursor: ${onClick ? 'pointer' : ''}
 	}`}
 	div {
 		display: flex;

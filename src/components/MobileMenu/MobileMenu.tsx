@@ -8,6 +8,7 @@ import {
 import { Container } from "react-grid-system";
 import Icon from "@Components/Icon/Icon";
 import Divider from "@Components/Divider/Divider";
+import { ScreenClass, useScreenClass } from "react-grid-system";
 
 interface IMobileMenu {
 	open: boolean;
@@ -18,6 +19,8 @@ const MobileMenu: FunctionComponent<IMobileMenu> = ({
 	open,
 	setMenuExpanded,
 }) => {
+	const usedScreenClass = useScreenClass() as ScreenClass;
+
 	const handleCloseMobileMenu = () => {
 		setMenuExpanded(!open);
 	};
@@ -25,7 +28,7 @@ const MobileMenu: FunctionComponent<IMobileMenu> = ({
 	return (
 		<aside>
 			<>
-				<MenuContentWrapper open={open}>
+				<MenuContentWrapper open={open} screenClass={usedScreenClass}>
 					<Container>
 						<p>{"User Account Project"}</p>
 						<Icon
@@ -40,14 +43,14 @@ const MobileMenu: FunctionComponent<IMobileMenu> = ({
 					<Container>
 						<LinkItemsWrapper>
 							<LinkItem onClick={handleCloseMobileMenu} to={"/"}>
-								{"Home"}
+								{"User Profile"}
 							</LinkItem>
 							<Divider color="black12" />
 							<LinkItem
 								onClick={handleCloseMobileMenu}
 								to={"/add"}
 							>
-								{"Add account"}
+								{"User information"}
 							</LinkItem>
 							<Divider color="black12" />
 						</LinkItemsWrapper>

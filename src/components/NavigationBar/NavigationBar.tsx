@@ -10,6 +10,8 @@ import Icon from "@Components/Icon/Icon";
 import ConditionalRender from "@Components/ConditionalRender/ConditionalRender";
 
 const HIDE_MENU_OFFSET = 60;
+export const MENU_ITEM_PROFILE = "User Profile";
+export const MENU_ITEM_PROFILE_INFO = "User information";
 
 const NavigationBar: FunctionComponent = () => {
 	const [menuVisibility, setMenuVisibility] = useState<{
@@ -63,8 +65,12 @@ const NavigationBar: FunctionComponent = () => {
 						)}
 						onFalse={() => (
 							<>
-								<LinkItem to={"/"}>{"Home"}</LinkItem>
-								<LinkItem to={"/add"}>{"Add account"}</LinkItem>
+								<LinkItem to={"/"}>
+									{MENU_ITEM_PROFILE}
+								</LinkItem>
+								<LinkItem to={"/add"}>
+									{MENU_ITEM_PROFILE_INFO}
+								</LinkItem>
 							</>
 						)}
 					/>

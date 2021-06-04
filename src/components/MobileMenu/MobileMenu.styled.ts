@@ -1,19 +1,24 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { MatchScreen } from "@Utils/layout/layoutSupport";
+// import { MatchScreen } from "@Utils/layout/layoutSupport";
+import { ScreenClass } from "react-grid-system";
 
 export const ListIconWrapper = styled.div`
 	width: 24px;
 	height: 24px;
 `;
 
-export const MenuContentWrapper = styled.div<{ open: boolean }>`
-	${({ open }) => {
+export const MenuContentWrapper = styled.div<{
+	open: boolean;
+	screenClass: ScreenClass;
+}>`
+	${({ open, screenClass }) => {
 		const transform = open ? "translate(0%, 0)" : "translate(-100%, 0)";
+
 		return {
 			transform,
-			width: MatchScreen("xs") ? "100%" : "61%",
-			maxWidth: !MatchScreen("xs") ? 467 : "inherit",
+			width: screenClass === "xs" ? "100%" : "61%",
+			maxWidth: screenClass !== "xs" ? 467 : "inherit",
 			opacity: open ? 1 : 0,
 			visibility: open ? "visible" : "hidden",
 			inset: 0,

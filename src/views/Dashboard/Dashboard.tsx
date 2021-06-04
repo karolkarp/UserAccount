@@ -1,67 +1,17 @@
 import React, { FunctionComponent } from "react";
 import { DashboardContainer } from "./Dashboard.styled";
-import { Container } from "react-grid-system";
+import { Container, Row, Col } from "react-grid-system";
 
 const Dashboard: FunctionComponent = () => {
 	return (
 		<Container>
-			<DashboardContainer>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-				<p>{"asdasdadsd as ddasdas dasdsd sd"}</p>
-			</DashboardContainer>
+			<Row>
+				<Col>
+					{/* <DashboardContainer> */}
+
+					{/* </DashboardContainer> */}
+				</Col>
+			</Row>
 		</Container>
 	);
 };
